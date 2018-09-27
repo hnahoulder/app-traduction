@@ -1,8 +1,15 @@
-#header-menu{
-top: 1px;
+.search-lohateny{
+    margin-left: auto;
 }
-
-
+.full-height-home{
+    max-height: calc(100vh - 167px);
+}
+#typeFihirana{
+    z-index: 2000;
+}
+#header-type{
+    top: 45px;
+}
 .tool-bar{
     position: sticky;
     position: -webkit-sticky;
@@ -14,8 +21,3 @@ top: 1px;
     margin: 3px 0 0 0;
     width: 100%;
 }
-
-/*
-/deep/.mat-toolbar-row, /deep/.mat-toolbar-single-row{
-    height: 60px;
-}*/

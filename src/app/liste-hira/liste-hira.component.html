@@ -1,0 +1,19 @@
+<mat-toolbar id="header-type" class="tool-bar">
+  <mat-toolbar-row>
+    <mat-form-field>
+      <mat-select placeholder="Type Fihirana" #typeHira id="typeFihirana">
+        <mat-option *ngFor="let fihirana of fihiranaType" [value]="fihirana.value">
+          {{fihirana.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <td-search-box #searchLohateny placeholder="Laharana na Lohateny" class="search-lohateny" [alwaysVisible]="true"></td-search-box>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<!--<perfect-scrollbar class="full-height-home">-->
+<div *ngFor="let hira of lohateny | filterObjectByAttribute: typeHira.value: ['faha'] | filterObjectByAttribute: searchLohateny.value: ['lohateny', 'laharana', 'laharana-tsotra']">
+  <app-lohateny-card [hira]="hira"  [routerLink]="['/hira', hira['laharana-tsotra']]"></app-lohateny-card>
+</div>
+<!--</perfect-scrollbar>-->

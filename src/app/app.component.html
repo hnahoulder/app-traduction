@@ -1,38 +1,22 @@
 <td-layout>
-    <td-navigation-drawer flex sidenavTitle="Covalent" logo="assets:teradata" name="Firstname Lastname"
-                          email="firstname.lastname@company.com">
-        <!--<mat-nav-list>
-            <a mat-list-item>
-                <mat-icon>home</mat-icon>
-                Home</a>
-        </mat-nav-list>
-        <div td-navigation-drawer-menu>
-            <mat-nav-list>
-                <a mat-list-item>
-                    <mat-icon>account_box</mat-icon>
-                    Profile</a>
-            </mat-nav-list>
-        </div>-->
-    </td-navigation-drawer>
-    <td-layout-nav logo="assets:teradata" toolbarTitle="Traduction Chant MG -> FR" navigationRoute="/">
-        <mat-toolbar id="header-home">
-            <mat-toolbar-row>
-                <mat-form-field>
-                    <mat-select placeholder="Type Fihirana" #typeHira id="typeFihirana">
-                        <mat-option *ngFor="let fihirana of fihiranaType" [value]="fihirana.value">
-                            {{fihirana.viewValue}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
 
-                <td-search-box #searchLohateny placeholder="Laharana na Lohateny" class="search-lohateny" [alwaysVisible]="true"></td-search-box>
-            </mat-toolbar-row>
+        <mat-toolbar class="tool-bar" id="header-menu">
+            <nav  mat-stretch-tabs mat-tab-nav-bar class="pull-bottom-xl pull-top-md text-upper" flex>
+                <a mat-tab-link [active]="true" routerLink="/">
+                    <span hide-xs>Liste chant</span>
+                    <span hide-gt-xs><mat-icon>list</mat-icon></span>
+                </a>
+                <a mat-tab-link routerLink="/hira/1">
+                    <span hide-xs>Traduire</span>
+                    <span hide-gt-xs><mat-icon>keyboard</mat-icon></span>
+                </a>
+                <a mat-tab-link>
+                    <span hide-xs>Statistique</span>
+                    <span hide-gt-xs><mat-icon>assessment</mat-icon></span>
+                </a>
+
+            </nav>
         </mat-toolbar>
+    <router-outlet></router-outlet>
 
-        <!--<perfect-scrollbar class="full-height-home">-->
-        <div *ngFor="let hira of lohateny | filterObjectByAttribute: typeHira.value: ['laharana'] | filterObjectByAttribute: searchLohateny.value: ['lohateny', 'laharana', 'laharana-tsotra']">
-            <app-lohateny-card [hira]="hira"></app-lohateny-card>
-        </div>
-        <!--</perfect-scrollbar>-->
-    </td-layout-nav>
 </td-layout>

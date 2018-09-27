@@ -7,6 +7,7 @@ import {Component, OnInit, Input} from '@angular/core';
 })
 export class LohatenyCardComponent implements OnInit {
     @Input() hira: any;
+    @Input() fihirana: any;
 
     constructor() {
     }
