@@ -33,6 +33,7 @@ import {ListeHiraComponent} from './liste-hira/liste-hira.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {HiraHadikaComponent} from './hira-hadika/hira-hadika.component';
 import {FihiranaService} from './service/fihirana.service';
+import {GroupByPipe, OrderByPipe} from 'ngx-pipes';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     suppressScrollX: true
@@ -86,7 +87,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         PerfectScrollbarModule,
         AppRoutingModule
     ],
-    providers: [MysqlService, ObjectToArrayPipe, FihiranaService, {
+    providers: [MysqlService, ObjectToArrayPipe, FihiranaService, GroupByPipe, OrderByPipe, {
         provide: PERFECT_SCROLLBAR_CONFIG,
         useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
     }],

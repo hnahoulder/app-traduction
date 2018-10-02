@@ -1,6 +1,20 @@
 <mat-card>
-  <mat-card-title>
-{{lohateny}}
-  </mat-card-title>
+    <mat-card-title>
+        {{lohateny}}
+    </mat-card-title>
+    <mat-card-content>
+        <mat-grid-list cols="2" >
 
+<mat-grid-tile *ngFor="let hira of hiraHadika" [innerHTML]="hira.texte"><mat-form-field>
+                <textarea matInput
+                          cdkTextareaAutosize
+                          cdkAutosizeMinRows="2"
+                          cdkAutosizeMaxRows="5">
+
+                </textarea>
+</mat-form-field></mat-grid-tile>
+
+
+        </mat-grid-list>
+    </mat-card-content>
 </mat-card>
