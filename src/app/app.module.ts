@@ -14,6 +14,7 @@ import {
     MatTabsModule, MatSidenavModule, MatTooltipModule, MatRippleModule, MatRadioModule, MatGridListModule,
     MatDatepickerModule, MatNativeDateModule, MatSliderModule, MatAutocompleteModule
 } from '@angular/material';
+import {MatTableModule} from '@angular/material';
 
 import {
     CovalentCommonModule, CovalentMediaModule, CovalentExpansionPanelModule,
@@ -85,7 +86,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         CovalentDataTableModule,
         CovalentMessageModule,
         PerfectScrollbarModule,
-        AppRoutingModule
+        AppRoutingModule,
+        MatTableModule
     ],
     providers: [MysqlService, ObjectToArrayPipe, FihiranaService, GroupByPipe, OrderByPipe, {
         provide: PERFECT_SCROLLBAR_CONFIG,

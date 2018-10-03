@@ -30,7 +30,7 @@ export class FihiranaService {
                 const fihirana = <Fihirana []>data['body'];
                 const fihiranaByLaharana = this._objectToArrayPipe.transform(
                     this._groupByPipe.transform(this._orderByPipe.transform(fihirana,
-                        ['laharana', 'andininy', 'type']),
+                        ['laharana', 'andininy']),
                         'laharana', null));
                 const fihiranaByLaharanaLohateny = fihiranaByLaharana.map(hiraTsirairay => {
                     const hira = hiraTsirairay.value[0].texte;
@@ -52,7 +52,7 @@ export class FihiranaService {
                     return toReturn;
                 });
                 this.fihirana = fihiranaByLaharanaLohateny;
-                // console.log(fihiranaByLaharanaLohateny);
+                console.log(fihiranaByLaharanaLohateny);
                 observer.next(fihiranaByLaharanaLohateny);
                 observer.complete();
                 });
