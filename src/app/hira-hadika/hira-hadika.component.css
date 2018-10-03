@@ -2,3 +2,17 @@
     border-color: black;
     border-style: dashed;
 }
+/deep/.mat-header-row, .mat-row {
+    display: flex;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    align-items: center;
+    padding: 0 24px;
+    box-sizing: border-box;
+    line-height: 2;
+}
+/deep/textarea {
+    vertical-align: top;
+    overflow: auto;
+    min-height: 50px;
+}
