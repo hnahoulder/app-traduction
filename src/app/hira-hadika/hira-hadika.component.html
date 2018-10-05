@@ -1,43 +1,30 @@
-<mat-card>
-    <mat-card-title>
+<mat-card class="card-title">
+    <button mat-button mat-fab class="button-navigation"><mat-icon style="">chevron_left</mat-icon></button>
+    <ng-container class="hira-title">
         {{lohateny}}
-    </mat-card-title>
+    </ng-container>
+    <ng-container style="margin-left: auto !important;">
+        <button mat-button mat-fab class="button-navigation" ><mat-icon style="">chevron_right</mat-icon></button>
+    </ng-container>
+
+</mat-card>
+<mat-card>
     <mat-card-content>
-<!--        <mat-grid-list cols="2" >
-
-<mat-grid-tile *ngFor="let hira of hiraHadika" [innerHTML]="hira.texte"><mat-form-field>
-                <textarea matInput
-                          cdkTextareaAutosize
-                          cdkAutosizeMinRows="2"
-                          cdkAutosizeMaxRows="5">
-
-                </textarea>
-</mat-form-field></mat-grid-tile>
-
-
-        </mat-grid-list>-->
         <mat-table  [dataSource]="hiraHadika" class="mat-elevation-z8 table">
 
-            <!--<ng-container matColumnDef="{{column.id}}" *ngFor="let column of columnNames">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> {{column.value}} </mat-header-cell>
-                <mat-cell *matCellDef="let element" [innerHTML]="element[column.id]">  </mat-cell>
-            </ng-container>-->
-            <ng-container matColumnDef="id">
+            <!--<ng-container matColumnDef="id" style="display: none !important;">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
-            </ng-container>
+            </ng-container>-->
 
 
             <ng-container matColumnDef="texte">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> Gasy </mat-header-cell>
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Parole en MG </mat-header-cell>
                 <mat-cell *matCellDef="let element" [innerHTML]="element.texte"></mat-cell>
             </ng-container>
-            <ng-container matColumnDef="texte_francais">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> Frantsay </mat-header-cell>
-                <mat-cell *matCellDef="let element" ><textarea matInput
-                                                                                                   cdkTextareaAutosize
-                                                                                                   cdkAutosizeMinRows="9"
-                                                                                                   cdkAutosizeMaxRows="10" >{{element.texte_francais}}
+            <ng-container matColumnDef="texte_francais" >
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Parole en FR </mat-header-cell>
+                <mat-cell *matCellDef="let element" ><textarea matInput rows="{{element.number_line}}" [innerHTML]="element.texte_francais" style="min-width: 100px; width: 100%; margin: 15px 2px auto 2px">
 
                 </textarea></mat-cell>
             </ng-container>
@@ -45,9 +32,6 @@
             <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
             <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
-
-            <!--<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>-->
-            <!--<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>-->
         </mat-table>
     </mat-card-content>
 </mat-card>

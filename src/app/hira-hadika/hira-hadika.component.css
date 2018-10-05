@@ -1,8 +1,9 @@
-.border{
+.border {
     border-color: black;
     border-style: dashed;
 }
-/deep/.mat-header-row, .mat-row {
+
+/deep/ .mat-header-row, .mat-row {
     display: flex;
     border-bottom-width: 1px;
     border-bottom-style: solid;
@@ -11,8 +12,30 @@
     box-sizing: border-box;
     line-height: 2;
 }
-/deep/textarea {
-    vertical-align: top;
+
+/deep/ textarea {
+    /*vertical-align: top;*/
     overflow: auto;
     min-height: 50px;
+    line-height: 1.5;
+}
+
+.hira-title {
+
+}
+
+.card-title {
+    height: 60px;
+    padding-top: 10px;
+    text-align: center;
+    text-transform: uppercase !important;
+}
+
+.button-navigation {
+    color: black;
+    background-color: whitesmoke;
+    height: 40px;
+    width: 40px;
+    margin: 0px 5px 5px 5px;
+
 }

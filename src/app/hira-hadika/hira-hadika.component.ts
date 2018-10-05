@@ -11,19 +11,20 @@ import {MatTableDataSource} from '@angular/material';
 export class HiraHadikaComponent implements OnInit {
     lohateny: string;
     hiraHadika: any[];
-    columnNames = [{
+    columnNames = [/*{
         id: 'id',
         value: 'No.'
 
-    }, {
+    },*/ {
         id: 'texte',
-        value: 'Gasy'
+        value: 'Parole en MG'
     },
         {
             id: 'texte_francais',
-            value: 'Frantsay'
+            value: 'Parole en FR'
         }];
     displayedColumns = [];
+    test = 8;
 
     constructor(private _fihiranaService: FihiranaService,
                 private route: ActivatedRoute,
@@ -62,8 +63,10 @@ export class HiraHadikaComponent implements OnInit {
             });*/
             const hiraHadika = hira.value.map(h => {
                 return {
+                    number_line: ((h.texte.match(/\n/g) || []).length + 2),
                     texte: h.texte.replace(/\n/g, '<br/>'),
-                    texte_francais: h.texte_francais.replace(/\n/g, '<br/>'),
+                    texte_francais: h.texte_francais,
+                    // texte_francais: h.texte_francais.replace(/\n/g, '<br/>'),
                     id: h.id
                 };
             });
