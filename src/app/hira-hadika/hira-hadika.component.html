@@ -1,15 +1,16 @@
-<mat-card class="card-title">
-    <button mat-button mat-fab class="button-navigation"><mat-icon style="">chevron_left</mat-icon></button>
-    <ng-container class="hira-title">
-        {{lohateny}}
-    </ng-container>
-    <ng-container style="margin-left: auto !important;">
-        <button mat-button mat-fab class="button-navigation" ><mat-icon style="">chevron_right</mat-icon></button>
-    </ng-container>
+<mat-toolbar id="header-title" class="tool-bar" >
+    <mat-toolbar-row style="display: flex; align-items: center;justify-content: center; margin-top:8px;">
+        <button mat-button mat-mini-fab class="button-navigation"><mat-icon style="">chevron_left</mat-icon></button>
+        <ng-container class="hira-title">
+            {{lohateny}}
+        </ng-container>
+        <ng-container style="margin-left: auto !important;">
+            <button mat-button mat-mini-fab class="button-navigation" ><mat-icon style="">chevron_right</mat-icon></button>
+        </ng-container>
+    </mat-toolbar-row>
+</mat-toolbar>
+<!--<mat-card style="padding: 0px 0px 10px 0px;">-->
 
-</mat-card>
-<mat-card>
-    <mat-card-content>
         <mat-table  [dataSource]="hiraHadika" class="mat-elevation-z8 table">
 
             <!--<ng-container matColumnDef="id" style="display: none !important;">
@@ -24,14 +25,23 @@
             </ng-container>
             <ng-container matColumnDef="texte_francais" >
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Parole en FR </mat-header-cell>
-                <mat-cell *matCellDef="let element" ><textarea matInput rows="{{element.number_line}}" [innerHTML]="element.texte_francais" style="min-width: 100px; width: 100%; margin: 15px 2px auto 2px">
+                <mat-cell *matCellDef="let element" ><textarea class="textarea" [(ngModel)] = "frenchText[element.id]"
+                                                                matInput rows="{{element.number_line}}"
+                                                               [innerHTML]="element.texte_francais"
+
+                >
 
                 </textarea></mat-cell>
             </ng-container>
+
 
             <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
             <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
         </mat-table>
-    </mat-card-content>
-</mat-card>
+
+    <div style="display: flex; align-items: center;justify-content: center; margin:8px auto;">
+
+        <button mat-button mat-raised-button (click)="saveTraduction()">Enregistrer la traduction</button>
+    </div>
+<!--</mat-card>-->

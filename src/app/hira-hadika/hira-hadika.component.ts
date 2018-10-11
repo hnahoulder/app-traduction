@@ -24,7 +24,7 @@ export class HiraHadikaComponent implements OnInit {
             value: 'Parole en FR'
         }];
     displayedColumns = [];
-    test = 8;
+    frenchText = {};
 
     constructor(private _fihiranaService: FihiranaService,
                 private route: ActivatedRoute,
@@ -50,6 +50,14 @@ export class HiraHadikaComponent implements OnInit {
 
     }
 
+    saveTraduction() {
+        console.log(this.frenchText);
+    }
+
+    onKey(event) {
+        console.log(event.target.value);
+    }
+
     writeText() {
         this.route.params.subscribe(params => {
             const id = params['id']; // (+) converts string 'id' to a number
@@ -62,6 +70,7 @@ export class HiraHadikaComponent implements OnInit {
                 id: h.id, laharana: h.laharana, andininy: h.andininy};
             });*/
             const hiraHadika = hira.value.map(h => {
+                this.frenchText[h.id] = h.texte_francais;
                 return {
                     number_line: ((h.texte.match(/\n/g) || []).length + 2),
                     texte: h.texte.replace(/\n/g, '<br/>'),
