@@ -11,7 +11,7 @@ import {HiraHadikaComponent} from './hira-hadika/hira-hadika.component';
 
 const appRoutes: Routes = [
     // {path: 'crisis-center', component: CrisisCenterComponent},
-    {path: 'hira/:id', component: HiraHadikaComponent},
+    {path: 'hira/:laharana', component: HiraHadikaComponent},
     // {path: 'heroes', component: HeroListComponent, data: {title: 'Heroes List'}},
     {path: '', component: ListeHiraComponent},
     // {path: '', redirectTo: '/', pathMatch: 'full'},

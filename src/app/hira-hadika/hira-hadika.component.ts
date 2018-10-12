@@ -8,6 +8,7 @@ import {SimpleModalService} from 'ngx-simple-modal';
 import {ConfirmEditionComponent} from '../confirm-edition/confirm-edition.component';
 
 
+
 @Component({
     selector: 'app-hira-hadika',
     templateUrl: './hira-hadika.component.html',
@@ -80,7 +81,7 @@ export class HiraHadikaComponent implements OnInit {
 
     writeTextOnInit() {
         this.route.paramMap.subscribe(params => {
-            const id = params.get('id'); // (+) converts string 'id' to a number
+            const id = params.get('laharana'); // (+) converts string 'id' to a number
             this.writeText(id);
 
         });
@@ -126,7 +127,7 @@ export class HiraHadikaComponent implements OnInit {
     modifyHiraToTranslate(val) {
         const newRowNumber = this.rowNumber + val;
         const id = this._fihiranaService.getIdByRow(newRowNumber);
-        this.writeText(id);
+        this.router.navigate(['hira/', id], { });
     }
 
 
