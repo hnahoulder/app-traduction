@@ -21,6 +21,7 @@
       "styles": [
         "styles.css",
         "../node_modules/@covalent/core/common/platform.scss",
+        "../node_modules/ngx-simple-modal/dist/styles/simple-modal.css",
         "theme.scss"
       ],
       "scripts": [],

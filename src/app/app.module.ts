@@ -35,6 +35,9 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {HiraHadikaComponent} from './hira-hadika/hira-hadika.component';
 import {FihiranaService} from './service/fihirana.service';
 import {GroupByPipe, OrderByPipe} from 'ngx-pipes';
+import {ConfirmEditionComponent} from './confirm-edition/confirm-edition.component';
+import {SimpleModalService} from 'ngx-simple-modal';
+import { SimpleModalModule } from 'ngx-simple-modal';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     suppressScrollX: true
@@ -87,13 +90,18 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         CovalentMessageModule,
         PerfectScrollbarModule,
         AppRoutingModule,
-        MatTableModule
+        MatTableModule,
+        SimpleModalModule
     ],
     providers: [MysqlService, ObjectToArrayPipe, FihiranaService, GroupByPipe, OrderByPipe, {
         provide: PERFECT_SCROLLBAR_CONFIG,
         useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
-    }],
-    declarations: [AppComponent, LohatenyCardComponent, FilterObjectByAttributePipe, ListeHiraComponent, PageNotFoundComponent, HiraHadikaComponent],
+    }, SimpleModalService],
+    declarations: [AppComponent, LohatenyCardComponent, FilterObjectByAttributePipe, ListeHiraComponent, PageNotFoundComponent, HiraHadikaComponent, ConfirmEditionComponent],
+    entryComponents: [
+        ConfirmEditionComponent,
+
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {

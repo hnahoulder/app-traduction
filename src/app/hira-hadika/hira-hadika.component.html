@@ -1,47 +1,58 @@
-<mat-toolbar id="header-title" class="tool-bar" >
+<mat-toolbar id="header-title" class="tool-bar">
     <mat-toolbar-row style="display: flex; align-items: center;justify-content: center; margin-top:8px;">
-        <button mat-button mat-mini-fab class="button-navigation"><mat-icon style="">chevron_left</mat-icon></button>
+        <button mat-button mat-mini-fab class="button-navigation"
+                [disabled]="rowNumber===0?true:false"
+                (click)="onButtonPrevious()"
+        >
+            <mat-icon style="">chevron_left</mat-icon>
+        </button>
         <ng-container class="hira-title">
-            {{lohateny}}
+            {{laharana}} - {{lohateny}}
         </ng-container>
         <ng-container style="margin-left: auto !important;">
-            <button mat-button mat-mini-fab class="button-navigation" ><mat-icon style="">chevron_right</mat-icon></button>
+            <button mat-button mat-mini-fab class="button-navigation"
+                    [disabled]="rowNumber === fihiranaLength-1 ? true : false"
+                    (click)="onButtonNext()"
+
+            >
+                <mat-icon style="">chevron_right</mat-icon>
+            </button>
         </ng-container>
     </mat-toolbar-row>
 </mat-toolbar>
 <!--<mat-card style="padding: 0px 0px 10px 0px;">-->
 
-        <mat-table  [dataSource]="hiraHadika" class="mat-elevation-z8 table">
+<mat-table [dataSource]="hiraHadika" class="mat-elevation-z8 table">
 
-            <!--<ng-container matColumnDef="id" style="display: none !important;">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
-            </ng-container>-->
+    <!--<ng-container matColumnDef="id" style="display: none !important;">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+    </ng-container>-->
 
 
-            <ng-container matColumnDef="texte">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> Parole en MG </mat-header-cell>
-                <mat-cell *matCellDef="let element" [innerHTML]="element.texte"></mat-cell>
-            </ng-container>
-            <ng-container matColumnDef="texte_francais" >
-                <mat-header-cell *matHeaderCellDef mat-sort-header> Parole en FR </mat-header-cell>
-                <mat-cell *matCellDef="let element" ><textarea class="textarea" [(ngModel)] = "frenchText[element.id]"
-                                                                matInput rows="{{element.number_line}}"
-                                                               [innerHTML]="element.texte_francais"
+    <ng-container matColumnDef="texte">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Parole en MG</mat-header-cell>
+        <mat-cell *matCellDef="let element" [innerHTML]="element.texte"></mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="texte_francais">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Parole en FR</mat-header-cell>
+        <mat-cell *matCellDef="let element"><textarea class="textarea" [(ngModel)]="frenchText[element.id]"
+                                                      matInput rows="{{element.number_line}}"
+                                                      [innerHTML]="element.texte_francais"
+                                                      (keyup)="onKeyPress()"
 
-                >
+        >
 
                 </textarea></mat-cell>
-            </ng-container>
+    </ng-container>
 
 
-            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
-        </mat-table>
+</mat-table>
 
-    <div style="display: flex; align-items: center;justify-content: center; margin:8px auto;">
-
-        <button mat-button mat-raised-button (click)="saveTraduction()">Enregistrer la traduction</button>
-    </div>
+<div style="display: flex; align-items: center;justify-content: center; margin:8px auto;">
+    <button mat-button mat-raised-button (click)="saveTraduction()">Enregistrer la traduction</button>
+</div>
 <!--</mat-card>-->

@@ -22,6 +22,33 @@ export class FihiranaService {
         });
     }
 
+    getFihiranaLength() {
+        return this.fihirana.length;
+    }
+
+    getRowNumber(id) {
+        return this.fihirana.findIndex(el => {
+            return el.key === id;
+        });
+    }
+
+    getIdByRow(row) {
+        return this.fihirana[row].key;
+    }
+
+    updateFihirana(row, data) {
+        console.log(data);
+        const keys = Object.keys(data);
+        for (let i = 0; i < keys.length; i++) {
+            const key = String(keys[i]);
+            for (let j = 0; j < this.fihirana[row].value.length; j++) {
+                if (this.fihirana[row].value[j].id === key) {
+                    this.fihirana[row].value[j].texte_francais = data[key];
+                }
+            }
+        }
+    }
+
     getFihirana$() {
         return Observable.create(observer => {
             const fihirana$ = this._mysqlSercice.getAllFihirana();
@@ -38,6 +65,8 @@ export class FihiranaService {
                     title = title[0].replace(/,/g, '');
                     title = title.replace(/\//g, '');
                     title = title.replace(/:/g, '');
+                    title = title.replace(/!/g, '');
+                    title = title.replace(/\?/g, '');
                     const laharana = hiraTsirairay.value[0].laharana;
                     let laharanaSuffix = laharana.substr(0, 2);
                     const laharanaNumber = parseInt(laharanaSuffix);
@@ -55,7 +84,7 @@ export class FihiranaService {
                 console.log(fihiranaByLaharanaLohateny);
                 observer.next(fihiranaByLaharanaLohateny);
                 observer.complete();
-                });
             });
+        });
     }
 }
