@@ -1,4 +1,4 @@
-<td-layout>
+<!--<td-layout>
 
         <mat-toolbar class="tool-bar" id="header-menu">
             <nav  mat-stretch-tabs mat-tab-nav-bar class="pull-bottom-xl pull-top-md text-upper" flex>
@@ -6,7 +6,7 @@
                     <span hide-xs>Liste chant</span>
                     <span hide-gt-xs><mat-icon>list</mat-icon></span>
                 </a>
-                <a mat-tab-link routerLink="/hira/1">
+                <a mat-tab-link routerLink="/hira/{{fihiranaService.laharanaHira}}">
                     <span hide-xs>Traduire</span>
                     <span hide-gt-xs><mat-icon>keyboard</mat-icon></span>
                 </a>
@@ -19,4 +19,22 @@
         </mat-toolbar>
     <router-outlet></router-outlet>
 
+</td-layout>-->
+<td-layout>
+    <td-navigation-drawer flex sidenavTitle="Menu" name="">
+        <mat-nav-list>
+            <a mat-list-item routerLink="/"><mat-icon>home</mat-icon>Accueil</a>
+        </mat-nav-list>
+        <mat-nav-list>
+            <a mat-list-item routerLink="/hira/1"><mat-icon>assessment</mat-icon>Statistique</a>
+            <!--<a mat-list-item routerLink="/hira/{{fihiranaService.laharanaHira}}"><mat-icon>assessment</mat-icon>Statistique</a>-->
+        </mat-nav-list>
+
+    </td-navigation-drawer>
+    <td-layout-nav logo="/assets/fjkm.png" toolbarTitle="Traduction parole Mg -> Fr" navigationRoute="/">
+        <button mat-icon-button td-menu-button tdLayoutToggle>
+            <mat-icon>menu</mat-icon>
+        </button>
+        <router-outlet></router-outlet>
+    </td-layout-nav>
 </td-layout>

@@ -29,6 +29,7 @@
     "@covalent/highlight": "^1.0.1",
     "@covalent/http": "^1.0.1",
     "@covalent/markdown": "^1.0.1",
+    "@swimlane/ngx-charts": "^9.0.0",
     "core-js": "^2.4.1",
     "ngx-perfect-scrollbar": "^6.3.1",
     "ngx-pipes": "^2.3.5",

@@ -14,7 +14,9 @@ top: 1px;
     margin: 3px 0 0 0;
     width: 100%;
 }
-
+/deep/.mat-toolbar.mat-primary{
+    background: dodgerblue;
+}
 /*
 /deep/.mat-toolbar-row, /deep/.mat-toolbar-single-row{
     height: 60px;

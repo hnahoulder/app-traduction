@@ -9,6 +9,7 @@ import {Fihirana} from '../models/fihirana/fihirana';
 @Injectable()
 export class FihiranaService {
     fihirana = [];
+    laharanaHira = "1";
 
     constructor(private  _mysqlSercice: MysqlService,
                 private _groupByPipe: GroupByPipe,

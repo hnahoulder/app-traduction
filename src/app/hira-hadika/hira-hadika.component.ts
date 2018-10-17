@@ -82,6 +82,7 @@ export class HiraHadikaComponent implements OnInit {
     writeTextOnInit() {
         this.route.paramMap.subscribe(params => {
             const id = params.get('laharana'); // (+) converts string 'id' to a number
+            this._fihiranaService.laharanaHira = id;
             this.writeText(id);
 
         });
@@ -127,6 +128,7 @@ export class HiraHadikaComponent implements OnInit {
     modifyHiraToTranslate(val) {
         const newRowNumber = this.rowNumber + val;
         const id = this._fihiranaService.getIdByRow(newRowNumber);
+        this._fihiranaService.laharanaHira = id;
         this.router.navigate(['hira/', id], { });
     }
 
